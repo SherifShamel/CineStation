@@ -13,7 +13,6 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 })
 export class App {
   protected readonly title = signal('cine-station');
-
   constructor(private flowbiteService: FlowbiteService) {}
 
   ngOnInit(): void {
