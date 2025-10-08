@@ -1,0 +1,11 @@
+.ball::after {
+  background-image: url('./../../../../../public/assets/images/logo.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.rounded-ball:checked ~ .ball::after {
+  background-size: cover;
+  background-position: top;
+  background-image: url('./../../../../../public/assets/images/transparent-logo.png');
+}
