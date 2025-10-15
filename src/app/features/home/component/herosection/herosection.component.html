@@ -1,4 +1,10 @@
-<div>
-    <img src="https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/9DYFYhmbXRGsMhfUgXM3VSP9uLX.jpg" alt=""
-        srcset="">
+<div class="min-h-80 relative">
+    <owl-carousel-o [options]="customOptions">
+        @for (movie of movies; track movie.id) {
+        <ng-template carouselSlide><img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt=""
+                srcset="" class="w-full">
+            <div class="cover"></div>
+        </ng-template>
+        }
+    </owl-carousel-o>
 </div>

@@ -1,86 +1,28 @@
-<div class="relative -top-30">
-    <h1 class="text-2xl py-2 text-white">New Releases</h1>
-    <div class="flex ">
-
-        <mat-card class="example-card mx-3 p-3" appearance="outlined">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button matButton>LIKE</button>
-                <button matButton>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="example-card mx-3 p-3" appearance="outlined">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button matButton>LIKE</button>
-                <button matButton>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="example-card mx-3 p-3" appearance="outlined">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button matButton>LIKE</button>
-                <button matButton>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="example-card mx-3 p-3" appearance="outlined">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button matButton>LIKE</button>
-                <button matButton>SHARE</button>
-            </mat-card-actions>
-        </mat-card>
+<div class=" dark:bg-gray-800 duration-300">
+    <div class="container mx-auto relative z-2 -top-26">
+        <h1 class="text-2xl py-2 text-white">New Releases</h1>
+        <owl-carousel-o [options]="customOptions">
+            @for (movie of popularMovies; track movie.id) {
+            <ng-template carouselSlide>
+                <div class="p-5 bg-white rounded-2xl dark:bg-gray-900 h-auto border border-black dark:border-0">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{movie.title}}
+                    </h5>
+                    <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="" />
+                    <p class="my-3 font-normal text-gray-700 dark:text-gray-400">{{movie.overview}}</p>
+                    <a href="#"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
     </div>
 </div>
+
+<!-- TO DO: install owl carousel and apply it here -->
