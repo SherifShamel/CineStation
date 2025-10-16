@@ -1,4 +1,4 @@
-import { Component, inject, input, InputSignal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
 
@@ -11,16 +11,21 @@ import { ThemeService } from '../../../core/services/theme.service';
 export class NavbarComponent {
   private readonly _ThemeService = inject(ThemeService);
   theme = this._ThemeService.theme;
+  ifDark!: boolean;
   changeTheme() {
     if (this.theme() == 'light') {
       this.theme.update((oldValue) => {
+        this.ifDark = true;
         return (oldValue = 'dark');
       });
     } else {
       this.theme.update((oldValue) => {
+        this.ifDark = false;
         return (oldValue = 'light');
       });
     }
-    console.log(this.theme());
+    // console.log(this.theme());
+
+    localStorage.setItem('theme', this.theme());
   }
 }

@@ -16,4 +16,8 @@ export class GetMoviesService {
   getPopular(): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/popular`);
   }
+
+  getTopRated(): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/movie/top_rated`);
+  }
 }

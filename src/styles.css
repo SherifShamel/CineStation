@@ -5,6 +5,9 @@
 @source "./../node_modules/flowbite/";
 @custom-variant dark (&:where(.dark, .dark *));
 
+.card {
+  @apply p-5 bg-white rounded-2xl dark:bg-gray-900 h-auto border border-black dark:border-0 shadow-md shadow-black dark:shadow-white dark:shadow-md;
+}
 html,
 body {
   height: 100%;
@@ -12,4 +15,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.main-bg {
+  background-image: url(https://cdn.readme.io/public/hub/web/7ce0d53ac942392fe29ee6ed4dcedc98.png);
 }

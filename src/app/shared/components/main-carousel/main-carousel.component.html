@@ -1,10 +1,10 @@
 <div class=" dark:bg-gray-800 duration-300 bg-gray-500 main-bg">
     <div class="container mx-auto relative z-2 -top-26">
-        
-        <h1 class="text-2xl py-2 text-black sm:text-white">Popular Movies</h1>
-        @defer(on viewport(news)) {
+
+        <h1 class="text-2xl py-2 text-black sm:text-white">{{title}}</h1>
         <owl-carousel-o [options]="customOptions">
-            @for (movie of popularMovies; track movie.id) {
+            @if(data){
+            @for (movie of data; track movie.id) {
             <ng-template carouselSlide>
                 <div class="card my-3 text-center min-h-70">
                     <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="" />
@@ -23,12 +23,9 @@
                 </div>
             </ng-template>
             }
+            } @else {
+            <p>Loading carousel data...</p>
+            }
         </owl-carousel-o>
-        }@loading {
-        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-        }
-        @placeholder {
-        <img class="rounded-t-lg" src="./assets/images/logo.png" alt="" #news />
-        }
     </div>
 </div>

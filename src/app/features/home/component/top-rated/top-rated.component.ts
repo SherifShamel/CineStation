@@ -1,40 +1,49 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { GetMoviesService } from '../../../../shared/services/get-movies.service';
 import { Movies } from '../../../../core/interfaces/movies.interface';
+import { GetMoviesService } from '../../../../shared/services/get-movies.service';
 
 @Component({
-  selector: 'app-herosection',
+  selector: 'app-top-rated',
   imports: [CarouselModule],
-  templateUrl: './herosection.component.html',
-  styleUrl: './herosection.component.css',
+  templateUrl: './top-rated.component.html',
+  styleUrl: './top-rated.component.css',
 })
-export class HerosectionComponent implements OnInit {
+export class TopRatedComponent implements OnInit {
+  popularMovies: Movies[] = [];
   private readonly _GetMoviesService = inject(GetMoviesService);
 
-  movies: Movies[] = [];
-
   customOptions: OwlOptions = {
-    loop: true,
+    loop: false,
+    stagePadding: 0,
+    margin: 10,
     mouseDrag: true,
-    autoplay: true,
     touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
       0: {
         items: 1,
       },
+      400: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 5,
+      },
     },
-    nav: false,
+    // nav: true,
   };
 
   ngOnInit(): void {
-    this._GetMoviesService.getMovies().subscribe({
+    this._GetMoviesService.getTopRated().subscribe({
       next: (res) => {
-        this.movies = res.results;
+        this.popularMovies = res.results;
       },
       error: (err) => {
         console.log(err);

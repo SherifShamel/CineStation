@@ -19,6 +19,9 @@ export class App {
 
   theme = this._ThemeService.theme;
   ngOnInit(): void {
+    this.theme.update((theme) => {
+      return (theme = localStorage.getItem('theme')!);
+    });
     this.flowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });

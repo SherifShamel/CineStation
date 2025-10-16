@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Observable } from 'rxjs';
 import { Movies } from '../../../../../core/interfaces/movies.interface';
-import { HttpClient } from '@angular/common/http';
 import { GetMoviesService } from '../../../../../shared/services/get-movies.service';
 
 @Component({
@@ -14,7 +14,8 @@ import { GetMoviesService } from '../../../../../shared/services/get-movies.serv
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsectionComponent implements OnInit {
-  popularMovies!: Movies[];
+  popularMovies: Movies[] = [];
+  mockData!: Observable<Movies[]>;
   private readonly GetMoviesService = inject(GetMoviesService);
 
   customOptions: OwlOptions = {
@@ -24,7 +25,7 @@ export class NewsectionComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -45,6 +46,7 @@ export class NewsectionComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.mockData = this.GetMoviesService.getPopular();
     this.GetMoviesService.getPopular().subscribe({
       next: (res) => {
         this.popularMovies = res.results;
