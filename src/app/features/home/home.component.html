@@ -1,5 +1,5 @@
-<section>
+<section class="">
     <app-herosection />
-    <app-newsection />
-    <app-top-rated />
+    <app-main-carousel [data]="popular" movieTitle="Popular Movies"></app-main-carousel>
+    <app-main-carousel [data]="movies" movieTitle="Movies"></app-main-carousel>
 </section>

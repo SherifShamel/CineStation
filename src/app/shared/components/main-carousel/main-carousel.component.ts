@@ -1,7 +1,6 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Movies } from '../../../core/interfaces/movies.interface';
-import { GetMoviesService } from '../../services/get-movies.service';
 
 @Component({
   selector: 'app-main-carousel',
@@ -12,8 +11,8 @@ import { GetMoviesService } from '../../services/get-movies.service';
 export class MainCarouselComponent {
   @Input() title!: string;
   @Input() data!: Movies[];
-  private readonly GetMoviesService = inject(GetMoviesService);
-
+  @Input() movieTitle!: string;
+  
   customOptions: OwlOptions = {
     loop: false,
     stagePadding: 0,
