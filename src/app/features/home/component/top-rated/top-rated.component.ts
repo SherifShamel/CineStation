@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Movies } from '../../../../core/interfaces/movies.interface';
-import { GetMoviesService } from '../../../../shared/services/get-movies.service';
+import { GetMoviesService } from '../../../../shared/services/movies/get-movies.service';
 
 @Component({
   selector: 'app-top-rated',

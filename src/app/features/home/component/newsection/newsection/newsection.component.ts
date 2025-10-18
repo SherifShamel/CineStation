@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
 import { Movies } from '../../../../../core/interfaces/movies.interface';
-import { GetMoviesService } from '../../../../../shared/services/get-movies.service';
+import { GetMoviesService } from '../../../../../shared/services/movies/get-movies.service';
 
 @Component({
   selector: 'app-newsection',

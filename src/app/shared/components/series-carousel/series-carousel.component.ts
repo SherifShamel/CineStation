@@ -1,18 +1,18 @@
-import { DatePipe, TitleCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { Movies } from '../../../core/interfaces/movies.interface';
+import { Series } from '../../../core/interfaces/series.interface';
+import { OwlOptions, CarouselModule } from 'ngx-owl-carousel-o';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-main-carousel',
+  selector: 'app-series-carousel',
   imports: [CarouselModule, TitleCasePipe, DatePipe],
-  templateUrl: './main-carousel.component.html',
-  styleUrl: './main-carousel.component.css',
+  templateUrl: './series-carousel.component.html',
+  styleUrl: './series-carousel.component.css',
 })
-export class MainCarouselComponent {
+export class SeriesCarouselComponent {
   @Input() title!: string;
-  @Input() data!: Movies[];
-  @Input() movieTitle!: string;
+  @Input() data!: Series[];
+  @Input() seriesTitle!: string;
 
   customOptions: OwlOptions = {
     loop: false,

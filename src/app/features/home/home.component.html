@@ -1,5 +1,10 @@
 <section class="">
     <app-herosection />
     <app-main-carousel [data]="popular" movieTitle="Popular Movies"></app-main-carousel>
-    <app-main-carousel [data]="movies" movieTitle="Movies"></app-main-carousel>
+    <app-main-carousel [data]="topRated" movieTitle="Top Rated"></app-main-carousel>
+    <app-main-carousel [data]="nowPlayingMovies" movieTitle="Playing Now"></app-main-carousel>
+    <app-main-carousel [data]="upcomingMovies" movieTitle="Upcoming Movies"></app-main-carousel>
+
+    <!-- Series Section -->
+    <app-series-carousel [data]="topRatedSeries" seriesTitle="Top Rated Series"></app-series-carousel>
 </section>

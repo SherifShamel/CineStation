@@ -1,18 +1,18 @@
 <div class=" dark:bg-gray-800 duration-300 bg-gray-500 main-bg">
     <div class="container mx-auto relative z-2 sm:-top-26 top-0">
-        <h1 class="text-2xl py-2 text-black sm:text-white" #title>{{movieTitle}}</h1>
+        <h1 class="text-2xl py-2 text-black sm:text-white" #title>{{seriesTitle}}</h1>
         <owl-carousel-o [options]="customOptions">
             @if(data){
             @defer (on viewport(title)) {
-            @for (movie of data; track movie.id) {
+            @for (series of data; track series.id) {
             <ng-template carouselSlide>
                 <div class="card my-3 text-center min-h-70">
-                    <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="" />
-                    <h5 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{movie.title |
+                    <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{series.backdrop_path}}" alt="" />
+                    <h5 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{series.name |
                         titlecase}}
                     </h5>
                     <h6 class="text-start my-2 text-md tracking-tight text-gray-900 dark:text-white">
-                        {{movie.release_date | date}}
+                        {{series.first_air_date| date}}
                     </h6>
                 </div>
             </ng-template>

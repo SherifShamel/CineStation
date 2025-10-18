@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { GetMoviesService } from '../../../../shared/services/get-movies.service';
+import { GetMoviesService } from '../../../../shared/services/movies/get-movies.service';
 import { Movies } from '../../../../core/interfaces/movies.interface';
 
 @Component({
@@ -32,7 +32,7 @@ export class HerosectionComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this._GetMoviesService.getMovies().subscribe({
+    this._GetMoviesService.getPopular().subscribe({
       next: (res) => {
         this.movies = res.results;
       },
