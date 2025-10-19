@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home.component';
-import { TopRatedComponent } from './features/home/component/top-rated/top-rated.component';
+import { SeriesComponent } from './features/series/series.component';
 
 export const routes: Routes = [
   {
@@ -16,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path: 'series',
-    component: TopRatedComponent,
-    title: 'series',
+    component: SeriesComponent,
+    title: 'Series',
   },
 ];

@@ -17,6 +17,7 @@ export class MainCarouselComponent {
   customOptions: OwlOptions = {
     loop: false,
     stagePadding: 0,
+    lazyLoad: true,
     margin: 10,
     mouseDrag: true,
     touchDrag: true,
