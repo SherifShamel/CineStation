@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { Series } from '../../../core/interfaces/series.interface';
-import { OwlOptions, CarouselModule } from 'ngx-owl-carousel-o';
 import { DatePipe, TitleCasePipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Series } from '../../../core/interfaces/series.interface';
 
 @Component({
   selector: 'app-series-carousel',
-  imports: [CarouselModule, TitleCasePipe, DatePipe],
+  imports: [CarouselModule, TitleCasePipe, DatePipe, RouterLink],
   templateUrl: './series-carousel.component.html',
   styleUrl: './series-carousel.component.css',
 })
@@ -13,6 +14,7 @@ export class SeriesCarouselComponent {
   @Input() title!: string;
   @Input() data!: Series[];
   @Input() seriesTitle!: string;
+  @Input() seriesGenre!: string | null;
 
   customOptions: OwlOptions = {
     loop: false,
@@ -40,4 +42,8 @@ export class SeriesCarouselComponent {
     },
     // nav: true,
   };
+
+  saveGenre() {
+    sessionStorage.setItem('genre', this.seriesTitle);
+  }
 }

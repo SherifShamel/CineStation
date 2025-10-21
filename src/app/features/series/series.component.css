@@ -1,0 +1,9 @@
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to left, transparent, transparent, black),
+    linear-gradient(to bottom, transparent, transparent, black);
+}

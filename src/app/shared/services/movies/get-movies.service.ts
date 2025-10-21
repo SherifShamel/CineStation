@@ -13,8 +13,12 @@ export class GetMoviesService {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/now_playing`);
   }
 
-  getPopular(): Observable<any> {
-    return this._HttpClient.get(`${environment.baseURL}/3/movie/popular`);
+  getPopular(pageNumber: number = 1): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/movie/popular?page=${pageNumber}`);
+  }
+
+  getGenre(pageNumber: number = 1, genre: string | null): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/movie/${genre}?page=${pageNumber}`);
   }
 
   getTopRated(): Observable<any> {

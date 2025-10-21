@@ -3,14 +3,13 @@ import { forkJoin } from 'rxjs';
 import { Movies } from '../../core/interfaces/movies.interface';
 import { Series } from '../../core/interfaces/series.interface';
 import { MainCarouselComponent } from '../../shared/components/main-carousel/main-carousel.component';
-import { SeriesCarouselComponent } from '../../shared/components/series-carousel/series-carousel.component';
 import { GetMoviesService } from '../../shared/services/movies/get-movies.service';
 import { GetseriesService } from '../../shared/services/series/getseries.service';
 import { HerosectionComponent } from './component/herosection/herosection.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HerosectionComponent, MainCarouselComponent, SeriesCarouselComponent],
+  imports: [HerosectionComponent, MainCarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

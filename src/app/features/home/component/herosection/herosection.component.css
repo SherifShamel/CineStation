@@ -9,5 +9,5 @@ img {
   right: 0;
   bottom: 0;
   background: linear-gradient(to left, transparent, transparent, black),
-    linear-gradient(to bottom, transparent, transparent, black);
+    linear-gradient(to bottom, transparent, black);
 }
