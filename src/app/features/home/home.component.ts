@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     forkJoin({
       topRated: this._GetMoviesService.getTopRated(),
       popularMovies: this._GetMoviesService.getPopular(),
-      nowPlayingMovies: this._GetMoviesService.nowPlaying(),
+      nowPlayingMovies: this._GetMoviesService.getNowPlaying(),
       upcomingMovies: this._GetMoviesService.getUpcoming(),
       topRatedSeries: this._GetseriesService.topRated(),
     }).subscribe({

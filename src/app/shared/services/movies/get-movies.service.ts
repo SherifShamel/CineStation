@@ -9,7 +9,7 @@ import { environment } from '../../../../environments/environment.development';
 export class GetMoviesService {
   private readonly _HttpClient = inject(HttpClient);
 
-  nowPlaying(): Observable<any> {
+  getNowPlaying(): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/now_playing`);
   }
 

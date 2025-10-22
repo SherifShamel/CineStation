@@ -1,0 +1,22 @@
+<mat-tab-group mat-align-tabs="start" dynamicHeight #cast>
+    <mat-tab label="Cast" >
+        @defer (on viewport (cast)) {
+        <owl-carousel-o [options]="customOptions">
+            @for (author of movieCast; track author.id) {
+            <ng-template carouselSlide>
+                <div class="px-1 py-2">
+                    <div class="card">
+                        <img class="w-full block" src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                            [alt]="author.original_name">
+                        <hr class="mt-2">
+                        <h1 class="text-xl text-center">{{author.name}}</h1>
+                    </div>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+        }
+    </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>

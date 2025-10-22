@@ -20,7 +20,7 @@ export const routes: Routes = [
     title: 'Series',
   },
   {
-    path: 'popularmovies/:genreTitle',
+    path: 'movieslists/:genreTitle',
     loadComponent: () =>
       import('./features/home/component/movies-lists/movies-lists.component').then(
         (c) => c.PopularMoviesComponent
