@@ -16,6 +16,7 @@ export class MainCarouselComponent {
   @Input() movieTitle!: string;
   @Input() movieGenre!: string | null;
 
+  isDragging: boolean = false;
   customOptions: OwlOptions = {
     loop: false,
     stagePadding: 0,
@@ -26,7 +27,8 @@ export class MainCarouselComponent {
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    navText: ['', ''],
+    // navText: ['<', '>'],
+
     responsive: {
       0: {
         items: 1,
@@ -41,6 +43,7 @@ export class MainCarouselComponent {
         items: 5,
       },
     },
+
     // nav: true,
   };
 

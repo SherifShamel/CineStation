@@ -1,33 +1,34 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MatTabGroup, MatTab } from '@angular/material/tabs';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { ICast } from '../../../core/interfaces/icast.interface';
-import { MovieDetailsService } from '../../../shared/services/movieDetails/movie-details.service';
+import { ISeriesCast } from '../../../core/interfaces/iseries-cast.interface';
+import { SeriesDetailsService } from '../../../shared/services/seriesDetails/series-details.service';
 
 @Component({
-  selector: 'app-cast-section',
-  imports: [CarouselModule, MatTabGroup, MatTab],
-  templateUrl: './cast-section.component.html',
-  styleUrl: './cast-section.component.css',
+  selector: 'app-series-cast-section',
+  imports: [MatTabGroup, MatTab, CarouselModule],
+  templateUrl: './series-cast-section.component.html',
+  styleUrl: './series-cast-section.component.css',
 })
-export class CastSectionComponent implements OnInit {
-  private readonly _MovieDetailsService = inject(MovieDetailsService);
+export class SeriesCastSectionComponent implements OnInit {
+  private readonly _SeriesDetailsService = inject(SeriesDetailsService);
   private readonly _ActivatedRoute = inject(ActivatedRoute);
 
-  movieId!: any;
-  movieCast!: ICast[];
+  seriesId!: any;
+  seriesCast!: ISeriesCast[];
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
-        this.movieId = params.get('m_id');
+        this.seriesId = params.get('m_id');
       },
     });
 
-    this._MovieDetailsService.getMovieCredits(this.movieId).subscribe({
+    this._SeriesDetailsService.getSeriesCredits(this.seriesId).subscribe({
       next: (res) => {
-        this.movieCast = res.cast;
+        this.seriesCast = res.cast;
+        // console.log(res);
       },
       error: (err) => {
         console.log(err);

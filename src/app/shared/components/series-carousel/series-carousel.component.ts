@@ -16,6 +16,8 @@ export class SeriesCarouselComponent {
   @Input() seriesTitle!: string;
   @Input() seriesGenre!: string | null;
 
+  isDragging: boolean = false;
+
   customOptions: OwlOptions = {
     loop: false,
     stagePadding: 0,

@@ -6,12 +6,12 @@
                 [routerLink]="['/serieslists',seriesGenre]">
                 View More <i class="fa-solid fa-chevron-right fa-sm"></i></a>
         </div>
-        <owl-carousel-o [options]="customOptions">
+        <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
             @if(data){
             @defer (on viewport(title)) {
             @for (series of data; track series.id) {
             <ng-template carouselSlide>
-                <a role="button">
+                <a role="button" [owlRouterLink]="['/seriesdetails',series.id]" [stopLink]="isDragging">
                     <div class="card my-3 text-center min-h-70 overflow-hidden hover:scale-105 duration-300">
                         <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{series.backdrop_path}}"
                             alt="" />

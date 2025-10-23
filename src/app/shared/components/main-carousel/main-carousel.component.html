@@ -7,12 +7,13 @@
                 [routerLink]="['/movieslists',movieGenre]">
                 View More <i class="fa-solid fa-chevron-right fa-sm"></i></a>
         </div>
-        <owl-carousel-o [options]="customOptions">
+        <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
             @if(data){
             @defer (on viewport(title)) {
             @for (movie of data; track movie.id) {
             <ng-template carouselSlide>
-                <a role="button">
+                <a role="button" class="cursor-pointer" [owlRouterLink]="['/moviedetails',movie.id]"
+                    [stopLink]="isDragging">
                     <div class="card my-3 text-center min-h-70 overflow-hidden hover:scale-105 duration-300">
                         <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="" />
                         <h5 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{movie.title |

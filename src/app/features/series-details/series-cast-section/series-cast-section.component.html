@@ -1,8 +1,8 @@
 <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight #cast>
-    <mat-tab label="Cast" >
+    <mat-tab label="Cast">
         @defer (on viewport (cast)) {
         <owl-carousel-o [options]="customOptions">
-            @for (author of movieCast; track author.id) {
+            @for (author of seriesCast; track author.id) {
             <ng-template carouselSlide>
                 <div class="px-1 py-2">
                     <div class="card">
@@ -10,6 +10,7 @@
                             [alt]="author.original_name">
                         <hr class="mt-2">
                         <h1 class="text-xl text-center">{{author.name}}</h1>
+                        <h2 class="text-sm text-center text-gray-500">{{author.character}}</h2>
                     </div>
                 </div>
             </ng-template>

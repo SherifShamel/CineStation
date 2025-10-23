@@ -43,4 +43,12 @@ export const routes: Routes = [
       ),
     title: 'Movie Details',
   },
+  {
+    path: 'seriesdetails/:m_id',
+    loadComponent: () =>
+      import('./features/series-details/series-details.component').then(
+        (c) => c.SeriesDetailsComponent
+      ),
+    title: 'Series Details',
+  },
 ];
