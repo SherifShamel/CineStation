@@ -12,7 +12,7 @@
         </div>
         <h3 class="text-sm font-light mt-2 hidden sm:block">{{movieDetails.overview}}</h3>
 
-        @if(videos!=[]){
+        @if(videos.length>0){
         @for (item of videos; track item.id) {
         @if(item.official == true && item.type=="Trailer"){
         <a href="https://youtu.be/{{ item.key }}" target="_blank">
