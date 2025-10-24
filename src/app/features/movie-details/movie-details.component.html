@@ -11,6 +11,19 @@
             }
         </div>
         <h3 class="text-sm font-light mt-2 hidden sm:block">{{movieDetails.overview}}</h3>
+
+        @if(videos!=[]){
+        @for (item of videos; track item.id) {
+        @if(item.official == true && item.type=="Trailer"){
+        <a href="https://youtu.be/{{ item.key }}" target="_blank">
+            <button class="py-3 px-5 bg-gray-600 border rounded-2xl my-3 cursor-pointer">Watch
+                Trailer <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        </a>
+        }
+        }
+        } @else {
+        <h2 class="py-3 px-5 my-3">Trailer Is Not Available</h2>
+        }
     </div>
 </div>
 

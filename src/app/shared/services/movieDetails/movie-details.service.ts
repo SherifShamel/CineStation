@@ -16,4 +16,8 @@ export class MovieDetailsService {
   getMovieCredits(movieId: number): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/${movieId}/credits`);
   }
+
+  getMovieVideos(movieId: number,key:string=''): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/movie/${movieId}/videos#play${key}`);
+  }
 }

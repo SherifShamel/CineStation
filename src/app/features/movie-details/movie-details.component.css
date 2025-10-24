@@ -21,3 +21,9 @@ img {
 .genres span:last-child::after {
   content: '';
 }
+
+.modal {
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+}
