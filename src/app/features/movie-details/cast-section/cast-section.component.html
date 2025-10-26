@@ -22,3 +22,63 @@
         }
     </div>
 </section>
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="overflow-hidden">
+    <mat-tab label="First">
+ <owl-carousel-o [options]="customOptions">
+            @for (author of movieCast; track author.id) {
+            <ng-template carouselSlide>
+                <div class="px-1 py-2">
+                    <div class="card flex flex-col text-center min-h-70 overflow-hidden">
+                        <img class="w-full block flex-1"
+                            src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                            [alt]="author.original_name ">
+                        <h5 class="my-2 text-2xl font-bold text-gray-900 dark:text-white">{{author.name}}
+                        </h5>
+                        <h6 class="my-2 text-md font-bold text-gray-500 dark:text-white">{{author.character}}
+                        </h6>
+                    </div>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+    </mat-tab>
+    <mat-tab label="Second">
+         <owl-carousel-o [options]="customOptions">
+            @for (author of movieCast; track author.id) {
+            <ng-template carouselSlide>
+                <div class="px-1 py-2">
+                    <div class="card flex flex-col text-center min-h-70 overflow-hidden">
+                        <img class="w-full block flex-1"
+                            src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                            [alt]="author.original_name ">
+                        <h5 class="my-2 text-2xl font-bold text-gray-900 dark:text-white">{{author.name}}
+                        </h5>
+                        <h6 class="my-2 text-md font-bold text-gray-500 dark:text-white">{{author.character}}
+                        </h6>
+                    </div>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+    </mat-tab>
+    <mat-tab label="Third">
+         <owl-carousel-o [options]="customOptions">
+            @for (author of movieCast; track author.id) {
+            <ng-template carouselSlide>
+                <div class="px-1 py-2">
+                    <div class="card flex flex-col text-center min-h-70 overflow-hidden">
+                        <img class="w-full block flex-1"
+                            src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                            [alt]="author.original_name ">
+                        <h5 class="my-2 text-2xl font-bold text-gray-900 dark:text-white">{{author.name}}
+                        </h5>
+                        <h6 class="my-2 text-md font-bold text-gray-500 dark:text-white">{{author.character}}
+                        </h6>
+                    </div>
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+    </mat-tab>
+</mat-tab-group>

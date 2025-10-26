@@ -5,9 +5,10 @@ import { ICast } from '../../../core/interfaces/icast.interface';
 import { Movies } from '../../../core/interfaces/movies.interface';
 import { MovieDetailsService } from '../../../shared/services/movieDetails/movie-details.service';
 import { GetMoviesService } from '../../../shared/services/movies/get-movies.service';
+import { MatTabGroup, MatTab, MatTabBodyPortal } from "@angular/material/tabs";
 @Component({
   selector: 'app-cast-section',
-  imports: [CarouselModule],
+  imports: [CarouselModule, MatTabGroup, MatTab, MatTabBodyPortal],
   templateUrl: './cast-section.component.html',
   styleUrl: './cast-section.component.css',
 })
