@@ -27,3 +27,15 @@ img {
   left: 50%;
   z-index: 1000;
 }
+
+.trailers-area{
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  gap: 5px;
+}
+
+.trailers-area a{
+  width: 45%;
+}

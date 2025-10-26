@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MatTabGroup, MatTab } from '@angular/material/tabs';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { ICast } from '../../../core/interfaces/icast.interface';

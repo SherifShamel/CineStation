@@ -1,5 +1,5 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight #cast>
-    <mat-tab label="Cast" >
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight class="dark:bg-gray-800 main-bg" #cast>
+    <mat-tab label="Cast">
         @defer (on viewport (cast)) {
         <owl-carousel-o [options]="customOptions">
             @for (author of movieCast; track author.id) {
@@ -9,7 +9,8 @@
                         <img class="w-full block" src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
                             [alt]="author.original_name">
                         <hr class="mt-2">
-                        <h1 class="text-xl text-center">{{author.name}}</h1>
+                        <h1 class="text-xl text-center dark:text-white">{{author.name}}</h1>
+                        <h2 class="text-sm text-center text-gray-500">{{author.character}}</h2>
                     </div>
                 </div>
             </ng-template>

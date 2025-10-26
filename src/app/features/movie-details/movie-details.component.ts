@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MovieDetails } from '../../core/interfaces/movie-details.interface';
 import { MovieDetailsService } from '../../shared/services/movieDetails/movie-details.service';
 import { CastSectionComponent } from './cast-section/cast-section.component';
+import { IVideos } from '../../core/interfaces/ivideos.interface';
 
 @Component({
   selector: 'app-movie-details',
@@ -17,7 +18,8 @@ export class MovieDetailsComponent implements OnInit {
 
   movieId!: any;
   movieDetails: MovieDetails = {} as MovieDetails;
-  videos: any = [];
+  videos: IVideos[] = [];
+  rightTrailer!: IVideos | undefined;
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
@@ -37,11 +39,18 @@ export class MovieDetailsComponent implements OnInit {
 
     this.openTrailer();
   }
+  getRightTrailer(video: IVideos) {
+    return video ? video.type == 'Trailer' && video.official == true : ({} as IVideos);
+  }
 
   openTrailer() {
     this._MovieDetailsService.getMovieVideos(this.movieId).subscribe({
       next: (res) => {
         this.videos = res.results;
+
+        this.rightTrailer = this.videos.find(this.getRightTrailer);
+
+        console.log(this.rightTrailer);
       },
       error: (err) => {
         console.log(err);

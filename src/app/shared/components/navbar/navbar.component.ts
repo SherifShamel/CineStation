@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
 
@@ -12,6 +12,7 @@ export class NavbarComponent {
   private readonly _ThemeService = inject(ThemeService);
   theme = this._ThemeService.theme;
   ifDark!: boolean;
+  userScroll: boolean = false;
   changeTheme() {
     if (this.theme() == 'light') {
       this.theme.update((oldValue) => {
@@ -27,5 +28,10 @@ export class NavbarComponent {
     // console.log(this.theme());
 
     localStorage.setItem('theme', this.theme());
+  }
+
+  @HostListener('window:scroll')
+  scrolled() {
+    this.userScroll = window.scrollY > 5;
   }
 }
