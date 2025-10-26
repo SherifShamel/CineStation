@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieDetails } from '../../core/interfaces/movie-details.interface';
 import { MovieDetailsService } from '../../shared/services/movieDetails/movie-details.service';
-import { CastSectionComponent } from './cast-section/cast-section.component';
+import { CastSectionComponent } from './components/cast-section/cast-section.component';
 import { IVideos } from '../../core/interfaces/ivideos.interface';
 
 @Component({

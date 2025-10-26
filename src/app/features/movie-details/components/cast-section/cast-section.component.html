@@ -1,0 +1,16 @@
+<section class="dark:bg-gray-800 main-bg">
+    <div class="container mx-auto">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="relative -top-10"
+            (selectedTabChange)="onTabChange($event)">
+            <mat-tab label="Cast">
+                <app-cast-carousel></app-cast-carousel>
+            </mat-tab>
+            <mat-tab label="Details">
+                <app-cast-carousel></app-cast-carousel>
+            </mat-tab>
+            <mat-tab label="More Like This">
+                <app-cast-carousel></app-cast-carousel>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>

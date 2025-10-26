@@ -1,14 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { ICast } from '../../../core/interfaces/icast.interface';
-import { Movies } from '../../../core/interfaces/movies.interface';
-import { MovieDetailsService } from '../../../shared/services/movieDetails/movie-details.service';
-import { GetMoviesService } from '../../../shared/services/movies/get-movies.service';
+import { ICast } from '../../../../core/interfaces/icast.interface';
+import { Movies } from '../../../../core/interfaces/movies.interface';
+import { MovieDetailsService } from '../../../../shared/services/movieDetails/movie-details.service';
+import { GetMoviesService } from '../../../../shared/services/movies/get-movies.service';
+import { CastCarouselComponent } from '../cast-carousel/cast-carousel.component';
+
 @Component({
   selector: 'app-cast-section',
-  imports: [CarouselModule, MatTabGroup, MatTab],
+  imports: [CarouselModule, MatTabGroup, MatTab, CastCarouselComponent],
   templateUrl: './cast-section.component.html',
   styleUrl: './cast-section.component.css',
 })
@@ -74,4 +76,8 @@ export class CastSectionComponent implements OnInit {
     },
     // nav: true,
   };
+
+  onTabChange(event: MatTabChangeEvent) {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
+  }
 }
