@@ -1,23 +1,24 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight class="dark:bg-gray-800 main-bg" #cast>
-    <mat-tab label="Cast">
+<section id="cast-section" class="main-bg dark:bg-gray-800 my-3">
+    <div class="container mx-auto">
+        <h1 class="text-2xl dark:text-white" #cast>Cast</h1>
         @defer (on viewport (cast)) {
         <owl-carousel-o [options]="customOptions">
             @for (author of movieCast; track author.id) {
             <ng-template carouselSlide>
                 <div class="px-1 py-2">
-                    <div class="card">
-                        <img class="w-full block" src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
-                            [alt]="author.original_name">
-                        <hr class="mt-2">
-                        <h1 class="text-xl text-center dark:text-white">{{author.name}}</h1>
-                        <h2 class="text-sm text-center text-gray-500">{{author.character}}</h2>
+                    <div class="card flex flex-col text-center min-h-70 overflow-hidden">
+                        <img class="w-full block flex-1"
+                            src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                            [alt]="author.original_name ">
+                        <h5 class="my-2 text-2xl font-bold text-gray-900 dark:text-white">{{author.name}}
+                        </h5>
+                        <h6 class="my-2 text-md font-bold text-gray-500 dark:text-white">{{author.character}}
+                        </h6>
                     </div>
                 </div>
             </ng-template>
             }
         </owl-carousel-o>
         }
-    </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+    </div>
+</section>

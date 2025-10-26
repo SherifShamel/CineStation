@@ -30,4 +30,8 @@ export class GetMoviesService {
   getUpcoming(): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/upcoming`);
   }
+
+  getRecommendations(movieId: number): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/movie/${movieId}/recommendations`);
+  }
 }
