@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { ICast } from '../../../../core/interfaces/icast.interface';
 import { Movies } from '../../../../core/interfaces/movies.interface';
@@ -18,6 +18,7 @@ export class CastSectionComponent implements OnInit {
   private readonly _MovieDetailsService = inject(MovieDetailsService);
   private readonly _GetMoviesService = inject(GetMoviesService);
   private readonly _ActivatedRoute = inject(ActivatedRoute);
+  private readonly _Router = inject(Router);
 
   movieId!: any;
   movieCast!: ICast[];
@@ -30,6 +31,8 @@ export class CastSectionComponent implements OnInit {
         this.movieId = params.get('m_id');
       },
     });
+
+    this._Router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     this._GetMoviesService.getRecommendations(this.movieId).subscribe({
       next: (res) => {
@@ -49,7 +52,6 @@ export class CastSectionComponent implements OnInit {
       },
     });
   }
-
   customOptions: OwlOptions = {
     loop: false,
     stagePadding: 0,
