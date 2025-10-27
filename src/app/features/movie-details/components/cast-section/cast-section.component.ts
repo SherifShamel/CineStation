@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { ICast } from '../../../../core/interfaces/icast.interface';
+import { MovieDetails } from '../../../../core/interfaces/movie-details.interface';
 import { Movies } from '../../../../core/interfaces/movies.interface';
 import { MovieDetailsService } from '../../../../shared/services/movieDetails/movie-details.service';
 import { GetMoviesService } from '../../../../shared/services/movies/get-movies.service';
@@ -20,8 +21,10 @@ export class CastSectionComponent implements OnInit {
   private readonly _ActivatedRoute = inject(ActivatedRoute);
   private readonly _Router = inject(Router);
 
+  @Input() movieDetails!: MovieDetails;
+
   movieId!: any;
-  movieCast!: ICast[];
+  movieCast: ICast[] = [];
   recommendations!: Movies[];
   isDragging: boolean = false;
 
@@ -51,6 +54,8 @@ export class CastSectionComponent implements OnInit {
         console.log(err);
       },
     });
+
+    console.log(this.movieDetails);
   }
   customOptions: OwlOptions = {
     loop: false,

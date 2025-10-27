@@ -1,12 +1,36 @@
 <section class="dark:bg-gray-800 main-bg">
     <div class="container mx-auto">
-        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="relative -top-10"
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="relative -top-15"
             (selectedTabChange)="onTabChange($event)">
             <mat-tab label="Cast">
                 <app-cast-carousel></app-cast-carousel>
             </mat-tab>
             <mat-tab label="Details">
-                <app-cast-carousel></app-cast-carousel>
+                <div class="dark:text-white">
+                    <h1 class="font-black my-4">{{movieDetails.title}}</h1>
+
+                    <div class="genres">
+                        @for (genre of movieDetails.genres; track genre.id) {
+                        <span class="font-bold">{{genre.name}}</span>
+                        }
+                    </div>
+
+                    <h3>{{movieDetails.overview}}</h3>
+                    <div class="cast my-3">
+                        <h4 class="font-bold">Cast: </h4>
+                        @for (author of movieCast.slice(0,5); track author.id) {
+                        <span>{{author.name}}</span>
+                        }
+                    </div>
+
+                    <div class="production my-3">
+                        <h4 class="font-bold">Production Companies: </h4>
+                        @for (company of movieDetails.production_companies; track company.id) {
+                        <span>{{company.name}}</span>
+                        }
+                    </div>
+
+                </div>
             </mat-tab>
             <mat-tab label="More Like This">
                 <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
