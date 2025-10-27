@@ -9,7 +9,27 @@
                 <app-cast-carousel></app-cast-carousel>
             </mat-tab>
             <mat-tab label="More Like This">
-                <app-cast-carousel></app-cast-carousel>
+                <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                    @for (movie of recommendations; track movie.id) {
+                    <ng-template carouselSlide>
+                        <a role="button" class="cursor-pointer" [owlRouterLink]="['/moviedetails',movie.id]"
+                            [stopLink]="isDragging">
+                            <div class="card my-3 text-center min-h-70 overflow-hidden hover:scale-105 duration-300">
+                                <img class="rounded-t-lg" src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}"
+                                    alt="" />
+                                <h5 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{movie.title}}
+                                </h5>
+                                <h6 class="text-start my-2 text-md tracking-tight text-gray-900 dark:text-white">
+                                    {{movie.release_date}}
+                                </h6>
+                            </div>
+                        </a>
+                    </ng-template>
+                    }
+
+
+                </owl-carousel-o>
             </mat-tab>
         </mat-tab-group>
     </div>

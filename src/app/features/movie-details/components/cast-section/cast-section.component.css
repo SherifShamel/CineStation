@@ -1,7 +1,3 @@
 :host {
   --mat-sys-on-surface: gray !important;
 }
-
-.card {
-  min-height: 400px;
-}

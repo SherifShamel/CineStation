@@ -22,6 +22,7 @@ export class CastSectionComponent implements OnInit {
   movieId!: any;
   movieCast!: ICast[];
   recommendations!: Movies[];
+  isDragging: boolean = false;
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
@@ -59,21 +60,23 @@ export class CastSectionComponent implements OnInit {
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    navText: ['', ''],
+    // navText: ['<', '>'],
+
     responsive: {
       0: {
         items: 1,
       },
       400: {
-        items: 3,
+        items: 2,
       },
       740: {
-        items: 4,
+        items: 3,
       },
       940: {
         items: 5,
       },
     },
+
     // nav: true,
   };
 
