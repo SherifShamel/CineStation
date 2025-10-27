@@ -22,4 +22,8 @@ export class GetseriesService {
   getGenre(pageNumber: number = 1, genre: string | null): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/tv/${genre}?page=${pageNumber}`);
   }
+
+  getRecommendations(seriesId: number): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/tv/${seriesId}/recommendations`);
+  }
 }

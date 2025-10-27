@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ISeriesDetails } from '../../core/interfaces/iseries-details.interface';
 import { SeriesDetailsService } from '../../shared/services/seriesDetails/series-details.service';
 import { SeriesCastSectionComponent } from './series-cast-section/series-cast-section.component';
+import { IVideos } from '../../core/interfaces/ivideos.interface';
 
 @Component({
   selector: 'app-series-details',
@@ -17,6 +18,9 @@ export class SeriesDetailsComponent implements OnInit {
   seriesId!: any;
   seriesDetails: ISeriesDetails = {} as ISeriesDetails;
 
+  videos: IVideos[] = [];
+  rightTrailer!: IVideos | undefined;
+
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (params) => {
@@ -28,6 +32,28 @@ export class SeriesDetailsComponent implements OnInit {
       next: (res) => {
         this.seriesDetails = res;
         // console.log(this.seriesDetails);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.openTrailer();
+  }
+
+  getRightTrailer(video: IVideos) {
+    return video ? video.type == 'Trailer' && video.official == true : ({} as IVideos);
+  }
+
+  openTrailer() {
+    this._SeriesDetailsService.getSeriesVideos(this.seriesId).subscribe({
+      next: (res) => {
+        this.videos = res.results;
+        console.log(res);
+
+        this.rightTrailer = this.videos.find(this.getRightTrailer);
+
+        console.log(this.rightTrailer);
       },
       error: (err) => {
         console.log(err);

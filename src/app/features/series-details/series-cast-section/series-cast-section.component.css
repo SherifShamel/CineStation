@@ -1,0 +1,22 @@
+:host {
+  --mat-sys-on-surface: white !important;
+  --active-focus-indicator-color: white !important;
+  --mat-sys-primary: white !important;
+}
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: red !important;
+}
+
+.genres span::after,
+.production span::after,
+.cast span::after {
+  content: '.';
+  display: inline-block;
+  width: 10px;
+  text-align: center;
+}
+.cast span:last-child::after,
+.production span:last-child::after,
+.genres span:last-child::after {
+  content: '';
+}

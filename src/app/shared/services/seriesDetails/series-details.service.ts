@@ -16,4 +16,8 @@ export class SeriesDetailsService {
   getSeriesCredits(seriesId: number): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/tv/${seriesId}/credits`);
   }
+
+  getSeriesVideos(seriesId: number,key:string=''): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/tv/${seriesId}/videos#play${key}`);
+  }
 }

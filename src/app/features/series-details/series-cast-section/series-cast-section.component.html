@@ -1,23 +1,81 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight #cast>
-    <mat-tab label="Cast">
-        @defer (on viewport (cast)) {
-        <owl-carousel-o [options]="customOptions">
-            @for (author of seriesCast; track author.id) {
-            <ng-template carouselSlide>
-                <div class="px-1 py-2">
-                    <div class="card">
-                        <img class="w-full block" src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
-                            [alt]="author.original_name">
-                        <hr class="mt-2">
-                        <h1 class="text-xl text-center">{{author.name}}</h1>
-                        <h2 class="text-sm text-center text-gray-500">{{author.character}}</h2>
+<section class="dark:bg-gray-800 main-bg">
+    <div class="container mx-auto">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight class="relative -top-15" #cast
+            (selectedTabChange)="onTabChange($event)">
+            <mat-tab label="Cast">
+                <div class="mt-4">
+                    @defer (on viewport (cast)) {
+                    <owl-carousel-o [options]="customOptions">
+                        @for (author of seriesCast; track author.id) {
+                        <ng-template carouselSlide>
+                            <div class="px-1 py-2">
+                                <div class="card flex flex-col text-center min-h-70 overflow-hidden">
+                                    <img class="w-full block flex-1"
+                                        src="https://image.tmdb.org/t/p/original{{author.profile_path}}"
+                                        [alt]="author.original_name ">
+                                    <h5 class="my-2 text-xl font-bold text-gray-900 dark:text-white">{{author.name}}
+                                    </h5>
+                                    <h6 class="my-2 text-md font-bold text-gray-500 dark:text-white">
+                                        {{author.character}}
+                                    </h6>
+                                </div>
+                            </div>
+                        </ng-template>
+                        }
+                    </owl-carousel-o>
+                    }
+                </div>
+            </mat-tab>
+            <mat-tab label="Details">
+                <div class="dark:text-white mt-4">
+                    <h1 class="font-black my-4">{{seriesDetails.name}}</h1>
+
+                    <div class="genres">
+                        @for (genre of seriesDetails.genres; track genre.id) {
+                        <span class="font-bold">{{genre.name}}</span>
+                        }
+                    </div>
+
+                    <h3>{{seriesDetails.overview}}</h3>
+                    <div class="cast my-3">
+                        <h4 class="font-bold">Cast: </h4>
+                        @for (author of seriesCast.slice(0,5); track author.id) {
+                        <span>{{author.name}}</span>
+                        }
+                    </div>
+
+                    <div class="production my-3">
+                        <h4 class="font-bold">Production Companies: </h4>
+                        @for (company of seriesDetails.production_companies; track company.id) {
+                        <span>{{company.name}}</span>
+                        }
                     </div>
                 </div>
-            </ng-template>
-            }
-        </owl-carousel-o>
-        }
-    </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+            </mat-tab>
+            <mat-tab label="More Like This">
+                <div class="mt-4">
+                    <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                        @for (series of recommendations; track series.id) {
+                        <ng-template carouselSlide>
+                            <a role="button" class="cursor-pointer" [owlRouterLink]="['/seriesdetails',series.id]"
+                                [stopLink]="isDragging">
+                                <div
+                                    class="card my-3 text-center min-h-70 overflow-hidden hover:scale-105 duration-300">
+                                    <img class="rounded-t-lg"
+                                        src="https://image.tmdb.org/t/p/w500{{series.backdrop_path}}" alt="" />
+                                    <h5 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                        {{series.name}}
+                                    </h5>
+                                    <h6 class="text-start my-2 text-md tracking-tight text-gray-900 dark:text-white">
+                                        {{series.first_air_date}}
+                                    </h6>
+                                </div>
+                            </a>
+                        </ng-template>
+                        }
+                    </owl-carousel-o>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>
