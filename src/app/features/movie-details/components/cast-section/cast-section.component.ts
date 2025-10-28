@@ -55,7 +55,6 @@ export class CastSectionComponent implements OnInit {
       },
     });
 
-    console.log(this.movieDetails);
   }
   customOptions: OwlOptions = {
     loop: false,

@@ -31,7 +31,6 @@ export class SeriesDetailsComponent implements OnInit {
     this._SeriesDetailsService.getSeriesDetails(this.seriesId).subscribe({
       next: (res) => {
         this.seriesDetails = res;
-        // console.log(this.seriesDetails);
       },
       error: (err) => {
         console.log(err);
@@ -49,11 +48,8 @@ export class SeriesDetailsComponent implements OnInit {
     this._SeriesDetailsService.getSeriesVideos(this.seriesId).subscribe({
       next: (res) => {
         this.videos = res.results;
-        console.log(res);
 
         this.rightTrailer = this.videos.find(this.getRightTrailer);
-
-        console.log(this.rightTrailer);
       },
       error: (err) => {
         console.log(err);

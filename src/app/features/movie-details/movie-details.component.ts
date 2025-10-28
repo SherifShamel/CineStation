@@ -50,7 +50,6 @@ export class MovieDetailsComponent implements OnInit {
 
         this.rightTrailer = this.videos.find(this.getRightTrailer);
 
-        console.log(this.rightTrailer);
       },
       error: (err) => {
         console.log(err);

@@ -34,4 +34,12 @@ export class GetMoviesService {
   getRecommendations(movieId: number): Observable<any> {
     return this._HttpClient.get(`${environment.baseURL}/3/movie/${movieId}/recommendations`);
   }
+
+  searchMovies(movie: string): Observable<any> {
+    return this._HttpClient.get(`${environment.baseURL}/3/search/movie`, {
+      params: {
+        query: movie,
+      },
+    });
+  }
 }
