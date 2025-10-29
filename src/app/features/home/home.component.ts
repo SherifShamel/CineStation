@@ -6,6 +6,7 @@ import { MainCarouselComponent } from '../../shared/components/main-carousel/mai
 import { GetMoviesService } from '../../shared/services/movies/get-movies.service';
 import { GetseriesService } from '../../shared/services/series/getseries.service';
 import { HerosectionComponent } from './component/herosection/herosection.component';
+import { getLocaleTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-home',

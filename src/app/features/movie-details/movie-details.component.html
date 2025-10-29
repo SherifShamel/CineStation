@@ -2,23 +2,26 @@
     <img src="https://image.tmdb.org/t/p/original{{movieDetails.backdrop_path}}" alt="" srcset=""
         class=" w-full object-cover relative">
     <div class="cover"></div>
-    <div class="absolute top-[30%] left-[10%] w-[80%] sm:w-1/3 text-white ">
-        <h1 class="text-2xl font-bold">{{movieDetails.title}}</h1>
+    <div class="absolute top-[30%] left-[10%] w-[80%] text-white  ">
+        <h1 class="text-2xl font-bold sm:w-1/3">{{movieDetails.title}}</h1>
         <div class="genres">
             @for (genre of movieDetails.genres; track genre.id) {
-            <span class="text-lg font-semibold mt-2">{{genre.name}}</span>
+            <span class="text-lg font-semibold mt-2 sm:w-1/3">{{genre.name}}</span>
             }
         </div>
-        <h3 class="text-sm font-light mt-2 hidden sm:block">{{movieDetails.overview}}</h3>
 
-        <div class="trailers-area hidden md:block">
+        <h3 class="overview text-sm font-light mt-2 w-1/2 max-h-30 overflow-y-auto scroll hidden md:block">{{movieDetails.overview}}</h3>
+
+        <div class="trailers-area md:block">
             @if(videos){
-            
-            <a href="https://youtu.be/{{ rightTrailer?.key }}" target="_blank">
-                <button class="py-3 px-5 bg-gray-600 border rounded-2xl my-3 cursor-pointer">Watch
-                    Trailer<i class="fa-solid fa-arrow-up-right-from-square"></i></button>
-            </a>
-            
+
+            <div>
+                <a href="https://youtu.be/{{ rightTrailer?.key }}" target="_blank">
+                    <button class="py-3 px-5 bg-gray-600 border rounded-2xl my-5 cursor-pointer">Watch
+                        Trailer <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                </a>
+            </div>
+
             } @else {
             <h2 class="py-3 px-5 my-3">Trailer Is Not Available</h2>
             }

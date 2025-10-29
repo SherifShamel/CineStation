@@ -1,7 +1,3 @@
-img {
-  background: linear-gradient(black, black);
-}
-
 .cover {
   position: absolute;
   top: 0;
@@ -22,20 +18,17 @@ img {
   content: '';
 }
 
-.modal {
-  top: 50%;
-  left: 50%;
-  z-index: 1000;
-}
-
-.trailers-area{
+.trailers-area {
   width: 100%;
   position: relative;
-  overflow: auto;
-  display: flex;
-  gap: 5px;
 }
 
-.trailers-area a{
-  width: 45%;
+.overview::-webkit-scrollbar {
+  width: 5px;
+}
+.overview::-webkit-scrollbar-track {
+  background: #111827;
+}
+.overview::-webkit-scrollbar-thumb {
+  background: gray;
 }
